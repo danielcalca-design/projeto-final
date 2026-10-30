@@ -5,8 +5,8 @@ engine = create_engine('mysql+pymsql://root:senaisp@10.135.232.23:3306/projeto_f
 db_session =scoped_session(sessionmaker(bind=engine))
 Base = declarative_base()
 
-class Ordens(Base):
-    __tablename__ = 'ordens'
+class Ordem_servico(Base):
+    __tablename__ = 'ordem_servico'
     id_os = Column(Integer, primary_key=True)
     id_equipemnto = Column(Integer, ForeignKey('equipemnto.id'))
     id_cliente = Column(Integer, ForeignKey('cliente.id'))

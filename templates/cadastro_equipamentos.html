@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Equipamentos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quarks.css') }}?v=9">
 </head>
 <body>
-
+    <div class="container">
+        <div class="titulo">Tabela de Equipamentos</div>
+        <div class="tabela-dados">
+            <div class="tabela-linha-topo">
+                <div class="tabela-coluna">Nome</div>
+                <div class="tabela-coluna">Fabricante</div>
+                <div class="tabela-coluna">Descrição</div>
+                <div class="tabela-coluna">Data/Hora</div>
+                <div class="tabela-coluna">Ações</div>
+            </div>
+            {% for equipamento in equipamentos %}
+            <div class="tabela-linha-registro">
+                <div class="tabela-coluna">{{ equipamento.nome }}</div>
+                <div class="tabela-coluna">{{ equipamento.fabricante }}</div>
+                <div class="tabela-coluna">{{ equipamento.descricao }}</div>
+                <div class="tabela-coluna">{{ equipamento.data_equipamento }}</div>
+                <div class="tabela-coluna coluna-acoes"></div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="botoes-container">
+            <a href="{{ url_for('cadastrar_equipamento') }}">Novo Equipamento</a>
+            <a href="{{ url_for('index') }}" class=">Voltar</a>
+        </div>
+    </div>
 </body>
 </html>

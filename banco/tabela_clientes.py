@@ -4,7 +4,6 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from models import db_session, Cliente
 
-
 def select_todos_clientes():
     clientes_sql = select(Cliente)
     clientes = db_session.execute(clientes_sql).scalars()
@@ -29,6 +28,6 @@ def salvar(nome,data_nsc,email,senha):
         flash('ocorreu um erro, tente novamente', 'error')
         print(f"Erro: {e}")
 def select_um(id_cliente):
-    clientes_sql = select(Cliente).where(Cliente.id_cliente == id)
+    clientes_sql = select(Cliente).where(Cliente.id_cliente == id_cliente)
     clientes = db_session.execute(clientes_sql).scalar_one_or_none()
     return clientes
